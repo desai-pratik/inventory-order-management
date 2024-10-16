@@ -1,23 +1,28 @@
 import React, { useContext, useState } from 'react';
 import { ProductContext } from '../context/ProductContext';
+import { toast } from 'react-toastify';
 
 const AdminPanel = () => {
   const { products, addProduct, updateProduct, deleteProduct } = useContext(ProductContext);
-  const [newProduct, setNewProduct] = useState({ name: '', price: "", stock: "" });
+  const [newProduct, setNewProduct] = useState({ id: '', name: '', price: '', stock: '' });
+  const [isEditMode, setIsEditMode] = useState(false);
 
-  const handleAddProduct = () => {
-    if (newProduct.name && newProduct.price > 0 && newProduct.stock >= 0) {
-      const productToAdd = { ...newProduct, id: products.length ? Math.max(...products.map(p => p.id)) + 1 : 1 };
-      addProduct(productToAdd);
-      setNewProduct({ name: '', price: "", stock: "" });
+
+  const handleAddOrUpdate = () => {
+    if (isEditMode) {
+      updateProduct(newProduct);
+      toast.success('Product updated successfully!');
+      setIsEditMode(false);
     } else {
-      alert('Please fill in all fields correctly.');
+      const productWithId = { ...newProduct, id: Date.now() };
+      addProduct(productWithId);
     }
+    setNewProduct({ id: '', name: '', price: '', stock: '' });
   };
 
   const handleEdit = (product) => {
     setNewProduct(product);
-    updateProduct(true);
+    setIsEditMode(true);
   };
 
   const handleDelete = (productId) => {
@@ -52,8 +57,11 @@ const AdminPanel = () => {
             placeholder="Stock"
             className="border border-gray-300 p-2 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-          <button className="bg-green-500 text-white p-2 rounded w-full hover:bg-green-600 transition duration-300" onClick={handleAddProduct}>
-            Add Product
+          <button
+            onClick={handleAddOrUpdate}
+            className={`p-2 ${isEditMode ? 'bg-yellow-500' : 'bg-green-500'} text-white`}
+          >
+            {isEditMode ? 'Update Product' : 'Add Product'}
           </button>
         </div>
 
@@ -75,9 +83,6 @@ const AdminPanel = () => {
             </div>
           </>
         )}
-
-
-
 
         <h3 className="text-xl mt-4">Product List</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

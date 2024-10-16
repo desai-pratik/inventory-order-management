@@ -1,46 +1,70 @@
-# Inventory order management(Create React App)
+# Getting Started with Create React App
 
-## Project Overview
-This is an interactive and user-friendly Inventory and Order Management System built using React and Tailwind CSS. It allows customers and admins to manage products and orders efficiently. The app provides customers the ability to browse products, add items to their cart, and track their order history. Admin users have access to an admin panel where they can add, update, and delete products, as well as monitor low-stock products that need restocking. this website is available on : https://inventory-order-management-theta.vercel.app/login
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-![home page](./public/ss1.jpeg)
-![Add to card page](./public/ss2.jpeg)
-![order history page](./public/ss3.jpeg)
+## Available Scripts
 
-## Features
+In the project directory, you can run:
 
-### For Customers:
-- Product Catalog: Customers can view a list of available products, including details like name, price, and stock status.
-- Shopping Cart: Customers can add products to their cart and remove them if necessary. The cart is stored in local storage for persistence across sessions.
-- Order History: Customers can track their past orders, with details such as order date, status, and total amount.
+### `npm start`
 
-### For Admins:
-- Admin Panel: Admins can add, edit, and delete products from the inventory.
-- Low Stock Alerts: Products with low stock are highlighted in the admin panel to notify admins for restocking.
-- Product Management: Admins can view and manage the entire product catalog, updating details like price and stock levels.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### Technologies Used
-- React: For building dynamic UI components and managing state.
-- Tailwind CSS: For efficient and responsive styling.
-- Context API: For state management across the application.
-- LocalStorage: For persisting cart and product data locally.
-- React Router: For navigation between different views/pages in the application.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-## How to Run the Project
-- Clone the repository:
-```
-git clone https://github.com/desai-pratik/inventory-order-management.git
-```
-- Navigate to the project directory:
-```
-cd inventory-order-management
-```
-- Install the dependencies:
-```
-npm install
-```
-- Start the development server:
-```
-npm start
-```
-- Open the application in your browser at http://localhost:3000.
+### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

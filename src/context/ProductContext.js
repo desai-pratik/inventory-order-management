@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 export const ProductContext = createContext();
 
@@ -28,6 +29,7 @@ const ProductProvider = ({ children }) => {
         setCart((prev) => {
             const updatedCart = [...prev, product];
             localStorage.setItem('cart', JSON.stringify(updatedCart));
+            toast.success(`${product.name} added to cart!`);
             return updatedCart;
         });
     };
@@ -36,12 +38,14 @@ const ProductProvider = ({ children }) => {
         const updatedCart = cart.filter((item) => item.id !== productId);
         setCart(updatedCart);
         localStorage.setItem('cart', JSON.stringify(updatedCart));
+        toast.error('Product removed from cart.');
     };
 
     const addProduct = (newProduct) => {
         const updatedProducts = [...products, newProduct];
         setProducts(updatedProducts);
         localStorage.setItem('products', JSON.stringify(updatedProducts));
+        toast.success('Product added successfully!');
     };
     const updateProduct = (updatedProduct) => {
         const updatedProducts = products.map((product) =>
@@ -49,12 +53,14 @@ const ProductProvider = ({ children }) => {
         );
         setProducts(updatedProducts);
         localStorage.setItem('products', JSON.stringify(updatedProducts));
+        toast.success('Product updated successfully!');
     };
 
     const deleteProduct = (productId) => {
         const updatedProducts = products.filter((product) => product.id !== productId);
         setProducts(updatedProducts);
         localStorage.setItem('products', JSON.stringify(updatedProducts));
+        toast.error('Product deleted.');
     };
 
     return (

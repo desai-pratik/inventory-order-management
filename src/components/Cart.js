@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { ProductContext } from '../context/ProductContext';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Cart = () => {
   const { cart, removeFromCart } = useContext(ProductContext);
@@ -16,7 +17,7 @@ const Cart = () => {
     };
     orders.push(newOrder);
     localStorage.setItem('orders', JSON.stringify(orders));
-    alert('Order placed successfully!');
+    toast.success('Order placed successfully!');
     localStorage.removeItem('cart');
   };
 

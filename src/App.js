@@ -9,7 +9,10 @@ import Login from './components/Login';
 import OrderHistory from './components/OrderHistory';
 import SignUp from './components/SignUp';
 import AddCard from './pages/AddCard';
-import ProtectedRoute from './context/ProtectedRoute'; 
+import ProtectedRoute from './context/ProtectedRoute';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+
 
 function App() {
   return (
@@ -20,41 +23,42 @@ function App() {
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
-            
-            <Route 
-              path="/" 
+
+            <Route
+              path="/"
               element={
                 <ProtectedRoute>
                   <HomePage />
                 </ProtectedRoute>
-              } 
+              }
             />
-            <Route 
-              path="/card" 
+            <Route
+              path="/card"
               element={
                 <ProtectedRoute>
                   <AddCard />
                 </ProtectedRoute>
-              } 
+              }
             />
-            <Route 
-              path="/admin" 
+            <Route
+              path="/admin"
               element={
                 <ProtectedRoute>
                   <AdminPage />
                 </ProtectedRoute>
-              } 
+              }
             />
-            <Route 
-              path="/orders" 
+            <Route
+              path="/orders"
               element={
                 <ProtectedRoute>
                   <OrderHistory />
                 </ProtectedRoute>
-              } 
+              }
             />
           </Routes>
         </Router>
+        <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
       </ProductProvider>
     </AuthProvider>
   );

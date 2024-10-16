@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const SignUp = () => {
     const { signup } = useContext(AuthContext);
@@ -18,8 +19,10 @@ const SignUp = () => {
         if (formData.name && formData.email && formData.password) {
             signup(formData);
             navigate('/login');
+            toast.success('signup successful!');
         } else {
             setError('All fields are required.');
+            toast.error('All fields are required!');
         }
     };
 
